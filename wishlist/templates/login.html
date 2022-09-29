@@ -6,40 +6,57 @@
 
 {% block content %}
 
-<div class = "login">
+<style>
+    body{
+        background : url(https://cdn.discordapp.com/attachments/929765618708803584/1024939459495604234/backgroundghibli.jpg)
+    }
+</style>
 
-    <h1>Login</h1>
+<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+    <b class="navbar-brand" style = "color:#609f4e; margin-left: 10px; margin-right: 1050px">{{nama}}</b>
+    <button><a href = "{% url 'wishlist:logout' %}">Logout</a></button>
+    </nav>
 
-    <form method="POST" action="">
-        {% csrf_token %}
-        <table>
-            <tr>
-                <td>Username: </td>
-                <td><input type="text" name="username" placeholder="Username" class="form-control"></td>
-            </tr>
-                    
-            <tr>
-                <td>Password: </td>
-                <td><input type="password" name="password" placeholder="Password" class="form-control"></td>
-            </tr>
+<body>
 
-            <tr>
-                <td></td>
-                <td><input class="btn login_btn" type="submit" value="Login"></td>
-            </tr>
-        </table>
-    </form>
+    <div class = "login">
 
-    {% if messages %}
-        <ul>
-            {% for message in messages %}
-                <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}     
-        
-    Belum mempunyai akun? <a href="{% url 'wishlist:register' %}">Buat Akun</a>
+        <h1>Login</h1>
+    
+        <form method="POST" action="">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <td>Username: </td>
+                    <td><input type="text" name="username" placeholder="Username" class="form-control"></td>
+                </tr>
+                        
+                <tr>
+                    <td>Password: </td>
+                    <td><input type="password" name="password" placeholder="Password" class="form-control"></td>
+                </tr>
+    
+                <tr>
+                    <td></td>
+                    <td><input class="btn login_btn" type="submit" value="Login"></td>
+                </tr>
+            </table>
+        </form>
+    
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}     
+            
+        Belum mempunyai akun? <a href="{% url 'wishlist:register' %}">Buat Akun</a>
+    
+    </div>
 
-</div>
+</body>
+
 
 {% endblock content %}
+

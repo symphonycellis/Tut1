@@ -1,8 +1,22 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h5>Nama: </h5>
-<b>{{nama}}</b>
+
+<style>
+    body{
+        background : url(https://cdn.discordapp.com/attachments/929765618708803584/1024939459495604234/backgroundghibli.jpg)
+    }
+</style>
+
+
+<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+    <b class="navbar-brand" style = "color:#609f4e; margin-left: 10px; margin-right: 1050px">{{nama}}</b>
+    <button><a href = "{% url 'wishlist:logout' %}">Logout</a></button>
+    </nav>
+
+<body>
+    <h5>Nama: </h5>
+    <b>{{nama}}</b>
 
 <table>
     <tr>
@@ -21,6 +35,9 @@
     
 </table>
 <h5>Sesi terakhir login: {{ last_login }}</h5>
-<button><a href="{% url 'wishlist:logout' %}">Logout</a></button>
+
+</body>
+
+
 
 {% endblock content %}
